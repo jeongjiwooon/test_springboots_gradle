@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fake">
+    <!-- // class fake
+    // Map selectByUID(HashMap map){
+
+    // } -->
+	<select id="selectByUID" parameterType="Map" resultType="Map">
+        SELECT * 
+        FROM factorys
+        where COMPANY_ID = #{companyId}
+	</select>
+
+    <!-- 입력 -->
+	<insert id="insert" parameterType="Map">
+        insert into factorys
+        (COMPANY_ID, COMPANY)
+        values
+        <foreach collection="surveyMapList" item="item" 
+            index="index" separator=",">
+            (#{item.QuestionId}, #{item.AnswerId})
+        </foreach>
+        ;
+    </insert>
+
+</mapper>

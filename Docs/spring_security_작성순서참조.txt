@@ -1,0 +1,29 @@
+* refer git : https://github.com/yojulab/study_springboots_gradle
+
+0 단계 : 회원가입(암호화 없이)
+
+1 단계 : security 동작 확인
+- https://github.com/yojulab/study_springboots_gradle/blob/main/build.gradle 
++ 30번 라인 --> 화면 접근 시 spring 로그인 화면과 가능
++ system logging 내용 확인됨
+- https://github.com/yojulab/study_springboots_gradle/blob/main/src/main/java/com/yojulab/study_springboot/service/UsersService.java
++ public Object insert(Map dataMap) : 암호화 --> DB 확인
+
+2 단계 : 로그인 가능 작성 : 관련 *Controller.java, *Servicejava, *Mapper.xml 작성 필요
+- https://github.com/yojulab/study_springboots_gradle/blob/main/src/main/webapp/WEB-INF/views/security/loginForm.jsp
+- https://github.com/yojulab/study_springboots_gradle/blob/main/src/main/webapp/WEB-INF/views/security/logoutForm.jsp
+- https://github.com/yojulab/study_springboots_gradle/blob/main/src/main/java/com/yojulab/study_springboot/security/PrincipalUser.java
+- https://github.com/yojulab/study_springboots_gradle/blob/main/src/main/java/com/yojulab/study_springboot/security/PrincipalUserService.java
+- https://github.com/yojulab/study_springboots_gradle/blob/main/src/main/java/com/yojulab/study_springboot/configs/SecurityConfiguration.java
++ 20 ~ 23 라인 다음과 같이 변경 후 데스트 --> .requestMatchers("/admin*").authenticated()
+
+3 단계 : 로그인 정보(authenticated) 표시 및 확인 : JSP나 Java에서 활용 : 관련 *.java 작성 필요
+- https://github.com/yojulab/study_springboots_gradle/blob/main/src/main/webapp/WEB-INF/views/commons/header.jsp
+- https://github.com/yojulab/study_springboots_gradle/blob/main/src/main/java/com/yojulab/study_springboot/utils/Commons.java
+- https://github.com/yojulab/study_springboots_gradle/blob/main/src/main/java/com/yojulab/study_springboot/controller/MainController.java
+
+4 단계 : 권한 정보 활용 제한
+- https://github.com/yojulab/study_springboots_gradle/blob/main/src/main/webapp/WEB-INF/views/commons/header.jsp
+- https://github.com/yojulab/study_springboots_gradle/blob/main/src/main/java/com/yojulab/study_springboot/configs/SecurityConfiguration.java
++ 20 ~ 23 라인 참조해 적용
+
