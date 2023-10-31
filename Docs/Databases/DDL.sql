@@ -1,7 +1,7 @@
--- drop schema db_yojulab;
-CREATE SCHEMA db_yojulab;
+-- CREATE SCHEMA db_yojulab;
+-- DROP DATABASE `db_yojulab`;
 
-use db_yojulab;
+-- use `db_yojulab`;
 
 -- 공통코드
 CREATE TABLE COMMONS_CODE
